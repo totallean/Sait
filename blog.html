@@ -5,10 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Блог</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('.tab-content');
+      tabs.forEach(tab => tab.classList.add('hidden'));
+      document.getElementById(tabId).classList.remove('hidden');
+
+      const buttons = document.querySelectorAll('.tab-button');
+      buttons.forEach(btn => btn.classList.remove('bg-green-600', 'text-white'));
+      document.querySelector(`[data-tab="${tabId}"]`).classList.add('bg-green-600', 'text-white');
+    }
+  </script>
 </head>
 <body class="bg-white p-6 text-gray-900">
   <a href="index.html" class="text-green-600 hover:underline">← Назад</a>
-  <h1 class="text-2xl font-bold mt-4 mb-2">Блог</h1>
-  <p>Пока здесь ничего нет. Но скоро появится!</p>
+
+  <h1 class="text-2xl font-bold mt-4 mb-4">Блог</h1>
+
+  <div class="flex space-x-4 mb-6">
+    <button class="tab-button px-4 py-2 rounded border border-green-600 text-green-600 hover:bg-green-100" data-tab="tab1" onclick="showTab('tab1')">Статья 1</button>
+    <button class="tab-button px-4 py-2 rounded border border-green-600 text-green-600 hover:bg-green-100" data-tab="tab2" onclick="showTab('tab2')">Статья 2</button>
+    <button class="tab-button px-4 py-2 rounded border border-green-600 text-green-600 hover:bg-green-100" data-tab="tab3" onclick="showTab('tab3')">Статья 3</button>
+  </div>
+
+  <div id="tab1" class="tab-content">
+    <h2 class="text-xl font-semibold mb-2">Игры как форма искусства</h2>
+    <p class="mb-4">Компьютерные игры давно вышли за рамки простого развлечения. Сегодня многие проекты представляют собой сложные художественные произведения, объединяющие в себе визуальный стиль, музыку, сценарий и интерактивный опыт.
+Такие игры, как Journey, Gris, Inside и многие другие, вызывают у игроков эмоции, сравнимые с теми, что дарит кино или литература.
+Игры способны передавать идеи, ставить философские вопросы, формировать эмпатию. Они — новый язык искусства, рожденный в цифровую эпоху.</p>
+  </div>
+
+  <div id="tab2" class="tab-content hidden">
+    <h2 class="text-xl font-semibold mb-2">Ведущий мафии — профессия или хобби?</h2>
+    <p class="mb-4">Работа ведущим на мафии — это не просто зачитывание правил. Это контроль над игрой, создание атмосферы, интриги и баланса.
+Плюсы:
+— Возможность работать вживую с людьми, развивать харизму и навык управления аудиторией.
+— Гибкий график и творческий подход.
+Минусы:
+— Эмоциональное выгорание при частых играх.
+— Конфликтные игроки, требующие терпения.
+Нюанс: хороший ведущий — это не просто диктор, а актер, психолог и организатор в одном лице.</p>
+  </div>
+
+  <div id="tab3" class="tab-content hidden">
+    <h2 class="text-xl font-semibold mb-2">Как выбрать свой первый авто и не продать душу дьяволу</h2>
+    <p class="mb-4">Выбор первого автомобиля — как первое свидание: волнительно, непредсказуемо и чуть-чуть опасно. Слишком спортивный? — разоришься на бензине. Слишком старый? — подружишься со всеми автомеханиками района.
+
+Вот что стоит помнить:
+
+"Хочу кабриолет!" — забудь. В наших широтах кабриолет — это просто тазик с ветром.
+"Хочу BMW!" — хорошо, но только если у тебя есть второй BMW, чтобы на запчасти.
+"Возьму что-то недорогое." — ты не берёшь, оно тебя выбирает.
+Идеальный первый авто — это как верный друг: не пьёт масло ведрами, не капризничает зимой и прощает твои ошибки на парковке.
+Toyota, Kia, Volkswagen — вот имена, с которыми можно идти по жизни, не вызывая эвакуатор каждую неделю.
+
+Вывод: бери что-то простое, надёжное и помни: первый автомобиль не должен быть идеальным. Он должен быть твоим.</p>
+  </div>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      showTab('tab1');
+    });
+  </script>
 </body>
 </html>
+
